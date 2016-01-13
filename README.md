@@ -32,7 +32,7 @@ If your system has Python 2.6
 
 ```
 $ cd ~/your/sublime/lib
-$ ln -s /usr/lib/python2.6 pytho2.6
+$ ln -s /usr/lib/python2.6 python2.6
 ```
 
 Then install the plugin through package manager
