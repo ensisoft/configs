@@ -49,6 +49,7 @@ http://reviews.llvm.org/rL201729
 As a workaround we define a build flag in the sublimeclang settings
 and then add a workaround definition inside #if #end scope in a project config.h
 
+```
 #  if defined(SUBLIME_CLANG_WORKAROUNDS)
     // clang has a problem with gcc 4.9.0 stdlib and it complains
     // about max_align_t in cstddef (pulls it into std:: from global scope)
@@ -62,6 +63,10 @@ and then add a workaround definition inside #if #end scope in a project config.h
     // the macro is enabled in 'pime.sublime-project'    
     typedef int max_align_t;
 #  endif
+```
+
+I think this bug only happens when using gcc's c++ lib. Looks like adding -stdlib=libstdc++ 
+in sublimeclang options makes this go away.
 
 ----------------------
 
