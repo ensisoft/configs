@@ -37,3 +37,33 @@ $ ln -s /usr/lib/python2.6 python2.6
 
 Then install the plugin through package manager
 
+----------------------
+
+The clang on which sublimeclang is based has some obscure bug regarding gcc stdlib
+and it complains about max_align_t in cstddef (pulls it into std:: from global scope)
+However this problem is only affecting sublimeclang in sublimetext.
+
+https://bugs.archlinux.org/task/40229
+http://reviews.llvm.org/rL201729
+
+As a workaround we define a build flag in the sublimeclang settings
+and then add a workaround definition inside #if #end scope in a project config.h
+
+#  if defined(SUBLIME_CLANG_WORKAROUNDS)
+    // clang has a problem with gcc 4.9.0 stdlib and it complains
+    // about max_align_t in cstddef (pulls it into std:: from global scope)
+    // however the problem is only affecting sublimeclang in SublimeText
+    // 
+    // https://bugs.archlinux.org/task/40229
+    // http://reviews.llvm.org/rL201729
+    //
+    // As a workaround we define some type with a matching typename
+    // in the global namespace. 
+    // the macro is enabled in 'pime.sublime-project'    
+    typedef int max_align_t;
+#  endif
+
+----------------------
+
+
+
