@@ -65,10 +65,18 @@ and then add a workaround definition inside #if #end scope in a project config.h
 #  endif
 ```
 
-I think this bug only happens when using gcc's c++ lib. Looks like adding -stdlib=libstdc++ 
-in sublimeclang options makes this go away.
+I think this bug only happens when using gcc's c++ lib. Looks like adding -stdlib=libc++ 
+in sublimeclang options makes this go away. 
+
+NOTE: Make sure that you actually have clang headers (libc++-dev in Ubuntu 14.04) installed!
 
 ----------------------
 
+Ubuntu 14.04 LTS appears to have some problems with clang packages (at least on this machine the clang installation was messed up).
+clang 3.4 appears to work. Also remember to install the libc++-dev separately for clang stdlib headers!
 
+
+```
+$ sudo apt-get intall clang-3.4 libc++dev
+```
 
