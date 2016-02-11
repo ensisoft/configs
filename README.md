@@ -35,7 +35,32 @@ $ cd ~/your/sublime/lib
 $ ln -s /usr/lib/python2.6 python2.6
 ```
 
-Then install the plugin through package manager
+NOTE: Archlinux (as of 10th Feb 2016 still has Python2.6 in AUR)
+
+Then install the plugin through package manager.
+
+Finally it might complain that libclang.so cannot be loaded. 
+
+```
+$ cd .config/sublime-text-2/Packages/SublimeClang/src/
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+```
+Now it's likely that the above will also fail because your /usr/bin/python points to python3. Fix that by temporarily pointing
+the link to python2.6. Then try the build again, if it succeeds then fix the python link. 
+
+```
+$ su 
+$ cd /usr/bin/
+$ unlink python
+$ ln -s python2.6 python
+$ DO THE BUILD AGAIN HERE
+$ unlink python
+$ ln -s python3 python
+```
+
 
 ----------------------
 
