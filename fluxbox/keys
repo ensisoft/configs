@@ -1,0 +1,60 @@
+!mouse actions added by fluxbox-update_configs
+OnTitlebar Mouse1 :StartMoving
+OnTitlebar Mouse2 :StartTabbing
+
+!mouse actions added by fluxbox-update_configs
+OnTitlebar Double Mouse1 :Shade
+OnTitlebar Mouse3 :WindowMenu
+
+!mouse actions added by fluxbox-update_configs
+OnWindow Mod1 Mouse1 :MacroCmd {Raise} {Focus} {StartMoving}
+OnWindow Mod1 Mouse3 :MacroCmd {Raise} {Focus} {StartResizing BottomRight}
+
+!mouse actions added by fluxbox-update_configs
+OnToolbar Mouse4 :NextWorkspace
+OnToolbar Mouse5 :PrevWorkspace
+
+!mouse actions added by fluxbox-update_configs
+OnDesktop Mouse1 :hideMenus
+OnDesktop Mouse2 :workspaceMenu
+OnDesktop Mouse3 :rootMenu
+OnDesktop Mouse4 :nextWorkspace
+OnDesktop Mouse5 :prevWorkspace
+
+! with Fluxbox 1.3.1 need to add the groups shit
+! in the NextWindow command to make it cycle through
+! open windows on the current workspace not through all
+! open windows
+
+Mod1 Tab :NextWindow {groups} (workspace=[current])
+Mod1 Shift Tab :PrevWindow {groups} (workspace=[current])
+
+Control Mod1 1 :Workspace 1
+Control Mod1 2 :Workspace 2
+Control Mod1 3 :Workspace 3
+Control Mod1 4 :Workspace 4
+
+Control Mod1 Shift 1 :SendToWorkspace 1
+Control Mod1 Shift 2 :SendToWorkspace 2
+Control Mod1 Shift 3 :SendToWorkspace 3
+Control Mod1 Shift 4 :SendToWorkspace 4
+
+Mod1 F1 :Raise
+Mod1 F2 :Lower
+Mod1 F3 :Minimize
+Mod1 F4 :Close
+Mod1 F5 :Shade
+Mod1 F6 :Maximize
+
+Control Mod1 C :ExecCommand galculator
+Control Mod1 D :ShowDesktop
+Control Mod1 F :ExecCommand firefox
+Control Mod1 N :ExecCommand gedit
+Control Mod1 X :ExecCommand xterm -bg black -fg gray -fs 14
+Control Mod1 S :ExecCommand ~/bin/sublime-text-2/sublime_text
+
+Control Mod1 Shift A :~/coding/qt-4.8.2/bin/assistant
+Control Mod1 Shift D :~/coding/qt-4.8.2/bin/designer
+Control Mod1 Shift N :~/coding/newsflash/gui/dist/newsflash.sh
+Control Mod1 Shift S :ExecCommand scrot /tmp/screenshot.png && eog /tmp/screenshot.png
+Control Mod1 Shift L :ExecCommand xscreensaver-command -lock

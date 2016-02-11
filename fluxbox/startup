@@ -1,0 +1,67 @@
+#!/bin/sh
+#
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+# You can set your favourite wallpaper here if you don't want
+# to do it from your style.
+#
+# bsetbg -f ~/pictures/wallpaper.png
+#
+# This sets a black background
+
+export PATH=$PATH:/home/samiv/jdk1.7.0_05/bin/
+export EDITOR=nano
+export XTERM_LOCALE=en_US.UTF-8
+
+# This shows the fluxbox-splash-screen
+#fbsetbg -C /usr/share/fluxbox/splash.jpg
+
+# Other examples. Check man xset for details.
+#
+# Turn off beeps:
+xset -b
+
+# set x keymap to .fi
+setxkbmap fi
+
+# set mouse speed
+xset m 3/1 4
+
+# Set the background color
+/usr/bin/fbsetroot -solid black
+
+# Set the wallpaper
+fbsetbg -c ~/.fluxbox/backgrounds/default-wallpaper.png
+
+# Applications you want to run with fluxbox.
+# MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
+#
+
+# For laptop to display network manager applet for quick wifi settings
+# nm-applet &
+
+# For laptop to display battery status icon
+# cbatticon &
+
+/usr/lib/notification-daemon-1.0/notifcation-daemon &
+
+PID=`pidof xscreensaver`
+if [ "$PID" == "" ]; then
+    xscreensaver -no-splash &
+fi
+
+PID=`pidof notification-daemon`
+if [ "$PID" == "" ]; then 
+    /usr/lib/notification-daemon-1.0/notification-daemon &
+fi
+
+pulseaudio --start
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+exec fluxbox
+# or if you want to keep a log:
+# exec fluxbox -log "/home/samiv/.fluxbox/log"

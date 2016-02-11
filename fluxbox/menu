@@ -1,0 +1,85 @@
+# Fluxbox menu file
+[begin] (Fluxbox)
+	[exec] (Terminal)       {xfce4-terminal}
+    	[exec] (Xterm)          {xterm -bg black -fg gray}
+	[exec] (File Manager)   {thunar}
+	[submenu] (Applications)
+		[submenu] (Accessories)
+			[exec] (Archieve manager)   {file-roller}
+			[exec] (Calculator)         {galculator}
+			[exec] (Mousepad)           {mousepad}
+                        [exec] (gEdit)              {gedit}
+		[end]
+		[submenu] (Graphics)
+			[exec] (gThumb)             {gthumb}
+			[exec] (Image Viewer)       {eog}
+			[exec] (The GIMP)           {gimp}			
+                        [exec] (Blender)            {blender}
+		[end]
+		[submenu] (Internet)
+                        [exec] (Chromium)           {chromium}
+			[exec] (Firefox)            {firefox}
+            		[exec] (Chrome)             {google-chrome}
+			[exec] (Newsflash)          {/home/samiv/coding/newsflash/plus/dist/newsflash.sh}
+			[exec] (Skype)              {skype}
+			[exec] (Pidgin)             {pidgin}
+			[exec] (Thunderbird)        {thunderbird}
+		[end]
+		[submenu] (Multimedia)
+			[exec] (Totem)              {totem}
+		        [exec] (VLC)                {vlc}
+	                [exec] (Audacious)          {audacious}
+			[exec] (Alsamixer)          {xterm -e alsamixer}
+		[end]
+		[submenu] (Programming)
+                    [exec] (Sublime)            {~/bin/sublime-text-2/sublime_text}
+        	    [exec] (Eclipse)            {~/bin/eclipse/eclipse}
+	            [exec] (Qt4 Designer)       {~/coding/qt-4.8.2/bin/designer}
+	            [exec] (Qt4 Creator)        {~/coding/qt-4.8.2/bin/qtcreator}
+	            [exec] (Qt4 Assistant)      {~/coding/qt-4.8.2/bin/assistant}
+		    [exec] (Emacs)              {emacs}
+        	    [exec] (Meld)               {meld}
+        	    [exec] (RapidSVN)           {rapidsvn}
+        	    [exec] (KCachegrind)        {kcachegrind}
+		    [exec] (Ethereal)           {gksudo ethereal}
+		[end]
+		[submenu] (Office)
+		    [exec] (Open Office)        {ooffice}
+        	    [exec] (OO Calc)            {oocalc}
+  	            [exec] (OO Writer)          {oowriter}
+	            [exec] (OO Impress)         {ooimpress}
+	            [exec] (OO Draw)            {oodraw}
+	            [exec] (OO Math)            {oomath}
+ 	            [exec] (OO Printer Admin)   {oopadmin}
+	            [exec] (xpdf)               {xpdf}
+		    [end]
+		[submenu] (System tools)
+		    [exec] (System monitor)     {gnome-system-monitor}
+                    [exec] (Disk usage)         {baobab}
+                    [exec] (NVIDIA)             {nvidia-settings}
+		[end]
+	[end]
+	[submenu] (Settings)
+        	[exec] (Appearance)         {lxappearance}
+	        [exec] (Display)            {lxrandr}
+        	[exec] (Audio)              {pavucontrol}
+		[exec] (Screensaver)        {xscreensaver-demo}
+	        [exec] (GTK+ Theme)         {gtk-theme-switch2}
+	        [exec] (QtConfig)           {qtconfig}
+	[end]
+	[submenu] (Fluxbox)
+        [submenu] (Style)
+       		[stylesmenu] (Fluxbox Styles) {/home/samiv/.fluxbox/styles}
+        	[end]
+    		[config]     (Config Options)
+       		[reconfig]   (Reconfigure)
+       		[restart]    (Restart)
+    	[end]
+    [exit] (Log Out)	
+    [exec] (Lock screen) {xscreensaver-command -lock}
+    [exec] (Shutdown)    {systemctl poweroff}
+    [exec] (Reboot)      {systemctl reboot}
+    [exec] (Screenshot)  {scrot /tmp/screenshot.png && eog /tmp/screenshot.png}
+[end]
+
+
